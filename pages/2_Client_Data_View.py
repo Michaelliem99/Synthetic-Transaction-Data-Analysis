@@ -64,13 +64,13 @@ filtered_output = BytesIO()
 filtered_writer = pd.ExcelWriter(filtered_output, engine='xlsxwriter')
 
 filtered_df.to_excel(filtered_writer, index=False)
-filtered_writer.save()
+filtered_writer.close()
 
 ## All Data
 all_output = BytesIO()
 all_writer = pd.ExcelWriter(all_output, engine='xlsxwriter')
 df.to_excel(all_writer, index=False)
-all_writer.save()
+all_writer.close()
 
 ## Download Button
 dl_1, dl_2, _, _, _ = st.columns([1, 1, 1, 1, 1])
